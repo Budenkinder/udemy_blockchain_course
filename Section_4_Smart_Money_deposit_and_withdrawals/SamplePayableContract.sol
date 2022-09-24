@@ -16,6 +16,20 @@ contract SamplePayableContract{
     // can change storage 
     // the call of this function must be paid
     function updateString(string memory _newString) public payable{
-        myString = _newString;
+        //only do when at least 1 ether
+        if(msg.value == 1 ether){
+            myString = _newString;
+        }else{
+            (bool success, ) = msg.sender.call{value: msg.value}("");
+            require(success, "Transfer failed.");
+
+            //dont do this anymore
+            //https://consensys.github.io/smart-contract-best-practices/attacks/reentrancy/
+            //payable(msg.sender).transfer(msg.value);
+        }
+    }
+
+    function getContractsBalance() public view returns(uint){
+        return address(this).balance;
     }
 }
