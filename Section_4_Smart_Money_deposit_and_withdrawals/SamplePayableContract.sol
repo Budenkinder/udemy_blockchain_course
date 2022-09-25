@@ -1,36 +1,35 @@
  // SPDX-License-Identifier: MIT
 
- pragma solidity 0.8.17;
+pragma solidity 0.8.17;
 
 /*
-Understand the way funcs are called, see course
 
-shows the different state of atomic transaction with/without data
+    IF THE MONEY IS TRANSFERED, IT IS LOCKED
+    BECAUSE THERE IS NO FUNCTION TO TRANSFER 
+    SOMEWHERE ELSE
 
-https://consensys.github.io/smart-contract-best-practices/development-recommendations/solidity-specific/fallback-functions/
-
- A smart contact without any payable functions is not able
- to receive any money
-
- Only way is to implement the receive function
- => When there is no data
-
- To receive still money, when there is no data
- => we need the fallback function
 */
- contract SamplePayableContract{
+contract SamplePayableContract{
+    string public myString = "Hello World";
 
-     uint public lastValueSent;
-     string public lastFunctionCalled; 
+    // function is public
+    // can change storage 
+    // the call of this function must be paid
+    function updateString(string memory _newString) external payable{
+        //only do when at least 1 ether
+        if(msg.value == 1 ether){
+            myString = _newString; 
+        }else{
+            (bool success, ) = msg.sender.call{value: msg.value}("");
+            require(success, "Transfer failed.");
 
-    //payable is optional
-    fallback() external payable{
-        lastValueSent = msg.value;
-        lastFunctionCalled = "fallback";
+            //dont do this anymore
+            //https://consensys.github.io/smart-contract-best-practices/attacks/reentrancy/
+            //payable(msg.sender).transfer(msg.value);
+        }
     }
 
-     receive() external payable{
-         lastValueSent = msg.value;
-         lastFunctionCalled = "received";
-     }
- }
+    function getContractsBalance() public view returns(uint){
+        return address(this).balance;
+    }
+}

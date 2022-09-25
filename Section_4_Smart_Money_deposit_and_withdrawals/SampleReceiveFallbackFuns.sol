@@ -1,35 +1,42 @@
-// SPDX-License-Identifier: MIT
+ // SPDX-License-Identifier: MIT
 
-pragma solidity 0.8.17;
+ pragma solidity 0.8.17;
 
 /*
+Understand the way funcs are called, see course
 
-    IF THE MONEY IS TRANSFERED, IT IS LOCKED
-    BECAUSE THERE IS NO FUNCTION TO TRANSFER 
-    SOMEWHERE ELSE
+shows the different state of atomic transaction with/without data
 
+https://consensys.github.io/smart-contract-best-practices/development-recommendations/solidity-specific/fallback-functions/
+
+ A smart contact without any payable functions is not able
+ to receive any money
+
+ Only way is to implement the receive function
+ => When there is no data
+
+ To receive still money, when there is no data
+ => we need the fallback function
 */
-contract SamplePayableContract{
-    string public myString = "Hello World";
+ contract SampleReceiveFallbackFuncs{
 
-    // function is public
-    // can change storage 
-    // the call of this function must be paid
-    function updateString(string memory _newString) external payable{
-        //only do when at least 1 ether
-        if(msg.value == 1 ether){
-            myString = _newString; 
-        }else{
-            (bool success, ) = msg.sender.call{value: msg.value}("");
-            require(success, "Transfer failed.");
+     uint public lastValueSent;
+     string public lastFunctionCalled; 
 
-            //dont do this anymore
-            //https://consensys.github.io/smart-contract-best-practices/attacks/reentrancy/
-            //payable(msg.sender).transfer(msg.value);
-        }
+    string public justAString;
+//0x1d51057c0000000000000000000000000000000000000000000000000000000000000020000000000000000000000000000000000000000000000000000000000000000a6e657720537472696e6700000000000000000000000000000000000000000000
+    function updateMyString(string memory newString) public payable{
+        justAString = newString;
     }
 
-    function getContractsBalance() public view returns(uint){
-        return address(this).balance;
+    //payable is optional
+    fallback() external payable{
+        lastValueSent = msg.value;
+        lastFunctionCalled = "fallback";
     }
-}
+
+     receive() external payable{
+         lastValueSent = msg.value;
+         lastFunctionCalled = "received";
+     }
+ }
