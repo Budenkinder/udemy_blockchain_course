@@ -24,8 +24,14 @@ https://consensys.github.io/smart-contract-best-practices/development-recommenda
      string public lastFunctionCalled; 
 
     string public justAString;
-//0x1d51057c0000000000000000000000000000000000000000000000000000000000000020000000000000000000000000000000000000000000000000000000000000000a6e657720537472696e6700000000000000000000000000000000000000000000
-    function updateMyString(string memory newString) public payable{
+    //first 4 bytes - function signature - see input data
+    //using the keccak on the func name "updateMyString(string memory newString)"
+    //it creates a new output, where the first 4 bytes are the same
+    //the way how the evm knows what kind of function it calls
+//0x1d51057c000000000000000000000000000000000000000000000000000000000000002000000000000000000000000000000000000000000000000000000000000000016100000000000000000000000000000000000000000000000000000000000000
+//use that in transact calldata, it works the same
+//if unknown, the callback func will be triggered
+    function updateMyString(string memory newString) external payable {
         justAString = newString;
     }
 
