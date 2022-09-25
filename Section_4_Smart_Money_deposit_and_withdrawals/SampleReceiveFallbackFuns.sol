@@ -15,10 +15,10 @@ contract SamplePayableContract{
     // function is public
     // can change storage 
     // the call of this function must be paid
-    function updateString(string memory _newString) public payable{
+    function updateString(string memory _newString) external payable{
         //only do when at least 1 ether
         if(msg.value == 1 ether){
-            myString = _newString;
+            myString = _newString; 
         }else{
             (bool success, ) = msg.sender.call{value: msg.value}("");
             require(success, "Transfer failed.");
