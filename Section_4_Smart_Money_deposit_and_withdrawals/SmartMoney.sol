@@ -12,7 +12,7 @@
     in ETH
 
 */
-contract SampleWalletSmartContract is ReentrancyGuard{
+contract SampleSmartMoney is ReentrancyGuard{
 
     uint public currentBalance; 
     uint public lastReceivedValue;
