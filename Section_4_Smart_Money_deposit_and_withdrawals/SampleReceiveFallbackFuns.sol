@@ -36,6 +36,8 @@ https://consensys.github.io/smart-contract-best-practices/development-recommenda
     }
 
     //payable is optional
+    //this can be used for an attack
+    //can be hindered by => https://ethereum.stackexchange.com/questions/112128/how-this-modifier-nonreentrant-work
     fallback() external payable{
         lastValueSent = msg.value;
         lastFunctionCalled = "fallback";
