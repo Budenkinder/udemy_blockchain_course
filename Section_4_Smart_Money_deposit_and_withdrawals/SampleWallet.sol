@@ -24,6 +24,10 @@ contract SampleWalletSmartContract is ReentrancyGuard{
         owner = msg.sender;
     }
 
+    function getContractBalance() public view returns(uint){
+        return address(this).balance;
+    }
+
     function deposit() public payable{
         require(is1Ether(msg.value), "1 ether is required");
         currentBalance+=msg.value;
@@ -37,7 +41,7 @@ contract SampleWalletSmartContract is ReentrancyGuard{
     //to the owner
     function withdrawTo() external{
         require(isOwnerCalling(), "not the owner");
-        (bool success, ) = owner.call{value: currentBalance}("");
+        (bool success, ) = owner.call{value: getContractBalance()}("");
         require(success, "Transfer failed.");
         currentBalance = 0;
         lastReceivedValue = 0;
