@@ -2,6 +2,23 @@
 
 pragma solidity 0.8.17;
 
+/*
+    How to use it
+
+    Deploy InsecureEtherVault
+    Deposit money
+    Show address of the smart-contract
+    
+    Deploy Attack with the deployed address of the InsecureEtherVault
+    - Because Attack will call methods of that class
+    Deposit money at least 1 ether, because you have to deposit initially money
+
+    Call attack multiple times.
+
+    See balance of InsecureEtherVault decreases
+    See balance of Attack increases 
+
+*/
 contract InsecureEtherVault {
     mapping (address => uint256) private userBalances;
 
