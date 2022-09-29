@@ -19,7 +19,13 @@ pragma solidity 0.8.17;
     See balance of Attack increases 
 
 */
-contract InsecureEtherVault {
+
+interface IEtherVault {
+    function deposit() external payable;
+    function withdrawAll() external;
+}
+
+contract InsecureEtherVault is IEtherVault{
     mapping (address => uint256) private userBalances;
 
     function deposit() external payable {
@@ -47,11 +53,6 @@ contract InsecureEtherVault {
     function getUserBalance(address _user) public view returns (uint256) {
         return userBalances[_user];
     }
-}
-
-interface IEtherVault {
-    function deposit() external payable;
-    function withdrawAll() external;
 }
 
 contract Attack {
