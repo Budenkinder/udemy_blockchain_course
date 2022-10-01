@@ -48,3 +48,44 @@ https://consensys.github.io/smart-contract-best-practices/development-recommenda
          lastFunctionCalled = "received";
      }
  }
+
+/*
+    fallback() or receive() ?
+    
+    Ether send to contract?
+    is msg.data empty?
+    yes - receive exists? Yes - call receive - otherwise fallback 
+    no - fallback
+
+*/
+ contract Fallback{
+
+     string public triggeredFuncName;
+
+     function getDeployedAddress() external view returns(address){
+         return address(this);
+     }
+
+     fallback() external payable{
+         triggeredFuncName = "fallback";
+     }
+
+     receive() external payable{
+         triggeredFuncName = "receive";
+     }
+ }
+
+ contract SendMoneyTriggerFallback{
+
+     address owner;
+
+     constructor(){
+        owner = msg.sender;
+     }
+
+     function deposit(address payable _to) external payable{
+         require(msg.sender == owner);
+         (bool success,) = _to.call{value: msg.value}("");
+         require(success, "Transfer failed.");
+     }
+ }
