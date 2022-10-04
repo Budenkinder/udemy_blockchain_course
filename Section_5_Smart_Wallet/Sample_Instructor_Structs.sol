@@ -5,32 +5,84 @@ pragma solidity 0.8.17;
 /*
     Udemy provides a lot of courses
 
-    Instructors can register their courses by paying money
-    Instructors get listed as a member
-    Instructos must add their coursed
-    Instructors can remove their courses 
-    - before all clients get their money back
-    Instructors can delete themselves
-
-    Clients can register to a course by paying the money
-    Clients get listed as member
-    
-
-    many Instructors: name, surname, many courses
-    Course: title, price, Instructor name,registered clients as list max 15
-
-    They are added by Instructors, its their courses
-    An 
-
-    a course can have many Clients: name, surname, registers to a course by paying
-
 */
 contract Sample_Udemy{
+
+    mapping(address => Instructor) instructors;
 
     struct Instructor{
         string name;
         string surname;
-        mapping(address => )
+        //in real world, maybe a course is an nft
+        //and we put cid here, instead of string array
+        string[] courses;
     }
+
+    Instructor public instructor;
+
+    function hasSenderOneEther(uint _value) internal pure returns (bool){
+        return _value == 1 ether ? true : false;
+    }
+
+    function registerOrCancel() internal{
+        require(hasSenderOneEther(msg.value), "Registration requires 1 ETH.");
+    }
+
+    function checkIfInstructorExists(Instructor memory _instructor) internal pure returns(bool){
+        if(bytes(_instructor.name).length == 0){
+            return false;
+        }else{
+            return true;
+        }
+    }
+
+    /* 
+        add a new instructor with his course 
+        actually it creates a default value, when instructor is not available
+        it would be ok to update the values
+        but we only want the instructor to pay 1 ether
+
+        if courses added, the instructor needs to pay 1 ether for each course
+    */
+    function registerInstructor(string memory name, string memory surname) external payable{
+        registerOrCancel();
+
+        //check if there is already an instructor
+        //if the instructor is not available, then a default struct is returned
+        instructor = instructors[msg.sender];
+        if(!checkIfInstructorExists(instructor)){
+            instructor.name = name;
+            instructor.surname = surname;
+            instructors[msg.sender] = instructor;
+        }else{
+            //transaction is reverted
+            require(false, "Already registred");
+        }
+    }
+
+    function addANewCourse(string memory title) external payable{
+        //let the instructor pay an ether each time
+        registerOrCancel();
+
+        for (uint i = 0; i < instructors[msg.sender].courses.length; i++) {
+            string memory course = instructors[msg.sender].courses[i];
+            if(keccak256(bytes(course)) == keccak256(bytes(title))){
+                //already exists
+                require(false, "Already added");
+            }
+        }
+
+        // does not exists, just add it
+        instructors[msg.sender].courses.push(title);
+    }
+
+    function deleteACourse() internal{
+
+    }
+
+    function removeInstructor() internal{
+
+    }
+
 }
 
