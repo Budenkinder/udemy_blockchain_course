@@ -50,39 +50,72 @@ contract Sample_Udemy{
         //check if there is already an instructor
         //if the instructor is not available, then a default struct is returned
         mInstructorData = mInstructorList[msg.sender];
-        if(!checkIfInstructorExists(mInstructorData)){
+        if(checkIfInstructorExists(mInstructorData)){
+            //transaction is reverted
+            require(false, "Already registred");
+        }else{
+
+            //TODO: it is updating, but it should add a new instructor
+            //TODO: update and new instructor should be separated
             mInstructorData.name = name;
             mInstructorData.surname = surname;
             mInstructorList[msg.sender] = mInstructorData;
-        }else{
-            //transaction is reverted
-            require(false, "Already registred");
         }
+    }
+
+    function isCourseUnique(string memory _courseA, string memory _courseB) internal pure returns(bool){
+            if(keccak256(bytes(_courseA)) == keccak256(bytes(_courseB))){
+                //already exists
+                return false;
+            }
+
+            return true;
     }
 
     function addANewCourse(string memory title) external payable{
         //let the instructor pay an ether each time
-        registerOrCancel();
+        require(hasSenderOneEther(msg.value), "Requires 1 ether");
 
         for (uint i = 0; i < mInstructorList[msg.sender].courses.length; i++) {
             string memory course = mInstructorList[msg.sender].courses[i];
-            if(keccak256(bytes(course)) == keccak256(bytes(title))){
-                //already exists
-                require(false, "Already added");
-            }
+            require(isCourseUnique(course, title));
         }
 
         // does not exists, just add it
         mInstructorList[msg.sender].courses.push(title);
     }
 
-    function deleteACourse() internal{
+    /*
+        Delete a course also for 1 ether
+    */
+    function deleteACourse(string memory title) external payable{
+        require(hasSenderOneEther(msg.value), "Requires 1 ether");
 
+        //find the instructorData
+        mInstructorData = mInstructorList[msg.sender];
+        if(checkIfInstructorExists(mInstructorData)){
+            //find the course to be deleted
+            for (uint i = 0; i < mInstructorData.courses.length; i++) {
+                string memory course = mInstructorData.courses[i];
+                if(!isCourseUnique(course, title)){
+                    //normally use "delete" to remove the element
+                    //but the gap is still there, so move all elements
+                    mInstructorData.courses[i] = "";
+                }
+            }
+
+        }else{
+            //transaction is reverted
+            require(false, "You must register first.");
+        }
     }
 
-    function removeInstructor() internal{
-
+    function removeInstructor() external payable{
+        require(hasSenderOneEther(msg.value), "Requires 1 ether");
+        //find the instructorData
+        if(checkIfInstructorExists(mInstructorList[msg.sender])){
+            delete mInstructorList[msg.sender];
+        }
     }
-
 }
 
