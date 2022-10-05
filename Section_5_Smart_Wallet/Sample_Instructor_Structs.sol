@@ -8,8 +8,6 @@ pragma solidity 0.8.17;
 */
 contract Sample_Udemy{
 
-    mapping(address => Instructor) instructors;
-
     struct Instructor{
         string name;
         string surname;
@@ -18,7 +16,9 @@ contract Sample_Udemy{
         string[] courses;
     }
 
-    Instructor public instructor;
+    Instructor public mInstructorData;
+
+    mapping(address => Instructor) mInstructorList;
 
     function hasSenderOneEther(uint _value) internal pure returns (bool){
         return _value == 1 ether ? true : false;
@@ -49,11 +49,11 @@ contract Sample_Udemy{
 
         //check if there is already an instructor
         //if the instructor is not available, then a default struct is returned
-        instructor = instructors[msg.sender];
-        if(!checkIfInstructorExists(instructor)){
-            instructor.name = name;
-            instructor.surname = surname;
-            instructors[msg.sender] = instructor;
+        mInstructorData = mInstructorList[msg.sender];
+        if(!checkIfInstructorExists(mInstructorData)){
+            mInstructorData.name = name;
+            mInstructorData.surname = surname;
+            mInstructorList[msg.sender] = mInstructorData;
         }else{
             //transaction is reverted
             require(false, "Already registred");
@@ -64,8 +64,8 @@ contract Sample_Udemy{
         //let the instructor pay an ether each time
         registerOrCancel();
 
-        for (uint i = 0; i < instructors[msg.sender].courses.length; i++) {
-            string memory course = instructors[msg.sender].courses[i];
+        for (uint i = 0; i < mInstructorList[msg.sender].courses.length; i++) {
+            string memory course = mInstructorList[msg.sender].courses[i];
             if(keccak256(bytes(course)) == keccak256(bytes(title))){
                 //already exists
                 require(false, "Already added");
@@ -73,7 +73,7 @@ contract Sample_Udemy{
         }
 
         // does not exists, just add it
-        instructors[msg.sender].courses.push(title);
+        mInstructorList[msg.sender].courses.push(title);
     }
 
     function deleteACourse() internal{
