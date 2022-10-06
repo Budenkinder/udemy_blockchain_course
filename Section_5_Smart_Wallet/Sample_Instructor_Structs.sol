@@ -30,6 +30,10 @@ contract Sample_Udemy{
         return _value == 1 ether ? true : false;
     }
 
+    function forFree(uint _value) internal pure returns(bool){
+        return _value == 0 ether ? true : false;
+    }
+
     function registerOrCancel() internal{
         require(hasSenderOneEther(msg.value), "Registration requires 1 ETH.");
     }
@@ -89,8 +93,9 @@ contract Sample_Udemy{
     }
 
     function addANewCourse(string memory title) external payable{
-        //let the instructor pay an ether each time
+        require(isRegistred(mInstructorList[msg.sender]));
         require(hasSenderOneEther(msg.value), "Requires 1 ether");
+        require(!isEmptyString(title), "input title is empty");
 
         for (uint i = 0; i < mInstructorList[msg.sender].courses.length; i++) {
             string memory course = mInstructorList[msg.sender].courses[i];
@@ -101,11 +106,12 @@ contract Sample_Udemy{
         mInstructorList[msg.sender].courses.push(title);
     }
 
-    /*
-        Delete a course also for 1 ether
-    */
-    function deleteACourse(string memory title) external payable{
-        require(hasSenderOneEther(msg.value), "Requires 1 ether");
+    function getCourses() external returns(string[] memory){
+        return mInstructorList[msg.value].courses;
+    }
+
+    function deleteACourse(string memory title) external{
+        //require(hasSenderOneEther(msg.value), "Requires 1 ether");
 
         //find the instructorData
         mInstructorData = mInstructorList[msg.sender];
@@ -127,7 +133,8 @@ contract Sample_Udemy{
     }
 
     function removeInstructor() external payable{
-        require(hasSenderOneEther(msg.value), "Requires 1 ether");
+        require(forFree(msg.value), "for free");
+        //require(hasSenderOneEther(msg.value), "Requires 1 ether");
         //find the instructorData
         if(isRegistred(mInstructorList[msg.sender])){
             delete mInstructorList[msg.sender];
