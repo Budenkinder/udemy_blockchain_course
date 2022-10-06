@@ -20,6 +20,12 @@ contract Sample_Udemy{
 
     mapping(address => Instructor) mInstructorList;
 
+    constructor(){
+        mInstructorData = mInstructorList[msg.sender];
+        mInstructorData.name="";
+        mInstructorData.surname="";
+    }
+
     function hasSenderOneEther(uint _value) internal pure returns (bool){
         return _value == 1 ether ? true : false;
     }
@@ -28,12 +34,12 @@ contract Sample_Udemy{
         require(hasSenderOneEther(msg.value), "Registration requires 1 ETH.");
     }
 
-    function checkIfInstructorExists(Instructor memory _instructor) internal pure returns(bool){
-        if(bytes(_instructor.name).length == 0){
-            return false;
-        }else{
-            return true;
-        }
+    function isRegistred(Instructor memory _instructor) internal pure returns(bool){
+        return !isEmptyString(_instructor.name);
+    }
+
+    function isEmptyString(string memory str) internal pure returns(bool){
+        return bytes(str).length == 0;
     }
 
     /* 
@@ -46,21 +52,31 @@ contract Sample_Udemy{
     */
     function registerInstructor(string memory name, string memory surname) external payable{
         registerOrCancel();
+        //avoid to have empty strings as input
+        //because then looks like default values
+        require(!isEmptyString(name), "input name is empty");
+        require(!isEmptyString(surname),"input surname is empty");
 
         //check if there is already an instructor
         //if the instructor is not available, then a default struct is returned
-        mInstructorData = mInstructorList[msg.sender];
-        if(checkIfInstructorExists(mInstructorData)){
+        if(isRegistred(mInstructorList[msg.sender])){
             //transaction is reverted
             require(false, "Already registred");
         }else{
 
             //TODO: it is updating, but it should add a new instructor
             //TODO: update and new instructor should be separated
-            mInstructorData.name = name;
-            mInstructorData.surname = surname;
-            mInstructorList[msg.sender] = mInstructorData;
+            mInstructorList[msg.sender].name = name;
+            mInstructorList[msg.sender].surname = surname;
         }
+
+        mInstructorData = mInstructorList[msg.sender];
+    }
+
+    function getInstructorData() public view returns(string memory){
+        return string.concat(
+            mInstructorList[msg.sender].name,
+            mInstructorList[msg.sender].surname);
     }
 
     function isCourseUnique(string memory _courseA, string memory _courseB) internal pure returns(bool){
@@ -93,7 +109,7 @@ contract Sample_Udemy{
 
         //find the instructorData
         mInstructorData = mInstructorList[msg.sender];
-        if(checkIfInstructorExists(mInstructorData)){
+        if(isRegistred(mInstructorData)){
             //find the course to be deleted
             for (uint i = 0; i < mInstructorData.courses.length; i++) {
                 string memory course = mInstructorData.courses[i];
@@ -113,8 +129,9 @@ contract Sample_Udemy{
     function removeInstructor() external payable{
         require(hasSenderOneEther(msg.value), "Requires 1 ether");
         //find the instructorData
-        if(checkIfInstructorExists(mInstructorList[msg.sender])){
+        if(isRegistred(mInstructorList[msg.sender])){
             delete mInstructorList[msg.sender];
+            mInstructorData = mInstructorList[msg.sender];
         }
     }
 }
