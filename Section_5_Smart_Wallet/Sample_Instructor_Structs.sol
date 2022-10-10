@@ -77,10 +77,13 @@ contract Sample_Udemy{
         mInstructorData = mInstructorList[msg.sender];
     }
 
-    function getInstructorData() public view returns(string memory){
+    function getInstructorDataByAddress(address instructorAddress) public view returns(string memory){
+
         return string.concat(
-            mInstructorList[msg.sender].name,
-            mInstructorList[msg.sender].surname);
+                            string.concat(
+                                mInstructorList[instructorAddress].name,
+                                " "),
+            mInstructorList[instructorAddress].surname);
     }
 
     function isCourseUnique(string memory _courseA, string memory _courseB) internal pure returns(bool){
@@ -106,8 +109,8 @@ contract Sample_Udemy{
         mInstructorList[msg.sender].courses.push(title);
     }
 
-    function getCourses() external returns(string[] memory){
-        return mInstructorList[msg.value].courses;
+    function getCourses() external view returns(string[] memory){
+        return mInstructorList[msg.sender].courses;
     }
 
     function deleteACourse(string memory title) external{
