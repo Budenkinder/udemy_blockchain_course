@@ -8,9 +8,11 @@ https://medium.com/coinmonks/solidity-transfer-vs-send-vs-call-function-64c92cfc
 
 contract ContractBalanceDAO{
 
-    mapping(address=> uint) balances;
+    mapping(address=> uint) public balances;
 
     function deposit() public payable{
+        //msg.sender is the calling contract address
+        //msg.value is the value of the calling contract address
         balances[msg.sender] += msg.value;
     }
 }
@@ -20,9 +22,7 @@ contract CallingBalanceDAOContract{
 
     function depositToBalanceDAOByCallingTheContract(address _to) external{
         ContractBalanceDAO balanceDAO = ContractBalanceDAO(_to);
-        // how does the value from this contract is moved to the external contract?
-        // by using the anonymous function (like in Kotlin) 
-        // using the call func arguments 
-        balanceDAO.deposit();
+        // native transfer call
+        balanceDAO.deposit{value: 100, gas:100000}();
     }
 }
