@@ -15,19 +15,22 @@ contract ContractBalanceDAO{
         //msg.value is the value of the calling contract address
         balances[msg.sender] += msg.value;
     }
+
+    receive() external payable{
+        //this will always be called, when retrieving money
+        //an external contract can call this contract via native transfer call
+        //the external contract might dont know the deposit function,
+        //but still wants to send balance to this contact
+        deposit();
+    }
 }
 
 contract CallingBalanceDAOContract{
     receive() external payable{}
 
     function depositToBalanceDAOByCallingTheContract(address _to) external{
-        //like java reflection, what if we dont know the func and the contract
-        //https://docs.soliditylang.org/en/develop/abi-spec.html
-        //https://solidity-by-example.org/abi-encode/
-        //Because it is bytecode, the func needs to be re-keccak-ed
-        bytes memory payload = abi.encodeWithSignature("deposit()");
         // native transfer call
-        (bool success,) = _to.call{value: 100, gas:400000}(payload);
+        (bool success,) = _to.call{value: 100, gas:400000}("");
         require(success, "Deposity func error");
     }
 }
