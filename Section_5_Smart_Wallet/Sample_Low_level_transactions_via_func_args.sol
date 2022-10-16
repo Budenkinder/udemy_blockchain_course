@@ -21,8 +21,13 @@ contract CallingBalanceDAOContract{
     receive() external payable{}
 
     function depositToBalanceDAOByCallingTheContract(address _to) external{
-        ContractBalanceDAO balanceDAO = ContractBalanceDAO(_to);
+        //like java reflection, what if we dont know the func and the contract
+        //https://docs.soliditylang.org/en/develop/abi-spec.html
+        //https://solidity-by-example.org/abi-encode/
+        //Because it is bytecode, the func needs to be re-keccak-ed
+        bytes memory payload = abi.encodeWithSignature("deposit()");
         // native transfer call
-        balanceDAO.deposit{value: 100, gas:100000}();
+        (bool success,) = _to.call{value: 100, gas:400000}(payload);
+        require(success, "Deposity func error");
     }
 }
