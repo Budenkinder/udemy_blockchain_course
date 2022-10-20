@@ -1,4 +1,7 @@
-pragma solidity >=0.6.0 <0.7.0;
+//pragma solidity >=0.6.0 <0.7.0;
+
+ // SPDX-License-Identifier: MIT
+pragma solidity 0.8.17;
 
 /// @author 71ae and The Coding Army.
 /// @title Split and Distribute Mining Rewards between a costcenter and a beneficiary.
@@ -33,9 +36,9 @@ contract SplitMiningRewards
     // CONSTRUCTOR
 
     /// Input adresses for costcenter and beneficiary.
-    constructor(address payable _beneficiary, address payable _costcenter) public
+    constructor(address payable _beneficiary, address payable _costcenter)
     {
-        owner = msg.sender;
+        owner = payable(msg.sender);
         costcenter = _costcenter;
         beneficiary = _beneficiary;
         delegates[owner] = true;
@@ -81,7 +84,7 @@ contract SplitMiningRewards
         _balance = address(this).balance; // getting the amount of coin left in this account
         
        // LogSplitting("Donated: ", donation, "Sent to costcenter: ", sent_electricity_costs, "Remaining coin: ", _balance);
-       LogSplitting(donation, sent_electricity_costs, _balance);
+       emit LogSplitting(donation, sent_electricity_costs, _balance);
     }
 
     // POTENTIALLY, SUPPORTING FUNCTIONS
