@@ -16,6 +16,9 @@ contract SplitMiningRewards
     address payable costcenter;
     address payable beneficiary;
 
+    //for testing
+    uint balanceForTesting;
+
     // EVENTS
 
     event PaymentReceived(address from, uint value);
@@ -43,6 +46,14 @@ contract SplitMiningRewards
         beneficiary = _beneficiary;
         delegates[owner] = true;
         //emit writeaddress(address(this)); // CAUSES COMPILE ERROR
+    }
+
+    function depositJustForTest() external payable{
+        balanceForTesting += msg.value;
+    }
+
+    function getBalanceForTesting() public view returns(uint){
+        return balanceForTesting;
     }
 
     // MAIN CONTRACT FUNCTIONS
