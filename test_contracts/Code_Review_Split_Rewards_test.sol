@@ -1,26 +1,29 @@
 // SPDX-License-Identifier: GPL-3.0
         
-pragma solidity >=0.4.22 <0.9.0;
+pragma solidity > 0.8.7 <0.9.0;
 
-// This import is automatically injected by Remix
 import "remix_tests.sol"; 
 
-// This import is required to use custom transaction context
-// Although it may fail compilation in 'Solidity Compiler' plugin
-// But it will work fine in 'Solidity Unit Testing' plugin
 import "remix_accounts.sol";
 import "./Code_Review_Split_Rewards.sol";
 
-// File name has to end with '_test.sol', this file can contain more than one testSuite contracts
 contract testSuite{
 
-    /// 'beforeAll' runs before all other tests
-    /// More special functions are: 'beforeEach', 'beforeAll', 'afterEach' & 'afterAll'
+    SplitMiningRewards splitMiningRewards;
+    address payable owner = payable(TestsAccounts.getAccount(0));
+    address payable beneficiary = payable(TestsAccounts.getAccount(1));
+    address payable costcenter = payable(TestsAccounts.getAccount(2));
+
     function beforeAll() public {
         // <instantiate contract>
-        SplitMiningRewards splitMiningRewards = new SplitMiningRewards(
-            payable(TestsAccounts.getAccount(0)),
-            payable(TestsAccounts.getAccount(1)));
+        splitMiningRewards = new SplitMiningRewards(
+            beneficiary,costcenter);
+
+        splitMiningRewards.depositJustForTest{gas:40000, value:200}();
+    }
+
+    function testSplitAndPay() public{
+        //Assert.equal(splitMiningRewards.getBalanceForTesting(), 200, 'token balance should be 20');
     }
 }
     
