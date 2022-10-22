@@ -12,4 +12,4 @@ async function getLatestBNumb(){
     console.log(result);
 }
 
-getAccounts();
+getLatestBNumb();
