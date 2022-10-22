@@ -18,12 +18,13 @@ contract testSuite{
         // <instantiate contract>
         splitMiningRewards = new SplitMiningRewards(
             beneficiary,costcenter);
-
-        splitMiningRewards.depositJustForTest{gas:40000, value:200}();
     }
 
-    function testSplitAndPay() public{
+    function transferingSth() public payable{
+        (bool success,) = beneficiary.call{value: 100, gas:400000}("");
+        Assert.ok(success, "");
         //Assert.equal(splitMiningRewards.getBalanceForTesting(), 200, 'token balance should be 20');
+        //splitMiningRewards.depositJustForTest{gas:100000, value:200}();
     }
 }
     
