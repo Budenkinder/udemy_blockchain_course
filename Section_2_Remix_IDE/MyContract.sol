@@ -10,4 +10,5 @@ contract MyContract{
         ourString = _updateString;
     }
 
+    receive() external payable{ }
 }
