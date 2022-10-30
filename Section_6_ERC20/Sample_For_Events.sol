@@ -27,6 +27,8 @@ contract EventSample{
         tokenBalance[msg.sender] = 100;
     }
 
+    receive() external payable{ }
+
     function sendToken(address _to, uint _amount) public returns(bool){
         require(tokenBalance[msg.sender] >= _amount, "Not enough tokens");
         tokenBalance[msg.sender] -= _amount;
