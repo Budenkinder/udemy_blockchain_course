@@ -59,4 +59,14 @@ contract SampleSmartMoney is ReentrancyGuard{
         currentBalance -= lastReceivedValue;
         lastReceivedValue = 0;
     }
+
+        //let use the name transfer as this can be called by other contracts or by other owners
+    //the payload should be passed by 3rd parties
+    function transfer(address payable _to, uint amount, bytes memory payload) 
+            external payable returns(bytes memory){
+        
+        (bool success, bytes memory returnData) = _to.call{value: amount}(payload);
+         require(success, "Transfer failed."); 
+         return returnData;   
+    }
 }
