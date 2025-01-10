@@ -54,6 +54,8 @@ contract Bank is LogContracts{
         emit LogOutput("Bank starts withdrawing customers money");
         (bool success, ) = msg.sender.call{value: balance}("");
         require(success, "Failed to send Ether");
+
+        userBalances[msg.sender] = 0;
     }
 
     function getMsgSenderAddress() external view returns(address){

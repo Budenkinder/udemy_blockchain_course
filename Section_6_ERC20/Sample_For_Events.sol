@@ -25,6 +25,7 @@ contract EventSample{
     mapping(address => uint) public tokenBalance;
 
     event TokensSent(address indexed _from, address indexed _to, uint _amount);
+    event LogOutput(string log);
 
     constructor(){
         tokenBalance[msg.sender] = 100;
@@ -40,9 +41,11 @@ contract EventSample{
 
     function sendToken(address _to, uint _amount) public returns(bool){
         require(tokenBalance[msg.sender] >= _amount, "Not enough tokens");
+
         decreaseTokenBalance(msg.sender,_amount);
         increaseTokenBalance(_to, _amount);
         emit TokensSent(msg.sender, _to, _amount); 
+        emit LogOutput("bla bla bla");
         return true;
     }
 

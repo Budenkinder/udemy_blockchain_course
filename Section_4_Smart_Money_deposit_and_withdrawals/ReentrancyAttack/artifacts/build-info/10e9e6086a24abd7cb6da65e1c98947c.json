@@ -1,0 +1,208 @@
+{
+	"id": "10e9e6086a24abd7cb6da65e1c98947c",
+	"_format": "hh-sol-build-info-1",
+	"solcVersion": "0.8.17",
+	"solcLongVersion": "0.8.17+commit.8df45f5f",
+	"input": {
+		"language": "Solidity",
+		"sources": {
+			"Section_4_Smart_Money_deposit_and_withdrawals/ReentrancyAttack/Copy_Bank.sol": {
+				"content": " // SPDX-License-Identifier: MIT\n\npragma solidity 0.8.17;\n\ninterface IEtherVault {\n    function deposit() external payable;\n    function withdrawAll() external;\n}\n"
+			}
+		},
+		"settings": {
+			"optimizer": {
+				"enabled": false,
+				"runs": 200
+			},
+			"outputSelection": {
+				"*": {
+					"": [
+						"ast"
+					],
+					"*": [
+						"abi",
+						"metadata",
+						"devdoc",
+						"userdoc",
+						"storageLayout",
+						"evm.legacyAssembly",
+						"evm.bytecode",
+						"evm.deployedBytecode",
+						"evm.methodIdentifiers",
+						"evm.gasEstimates",
+						"evm.assembly"
+					]
+				}
+			}
+		}
+	},
+	"output": {
+		"contracts": {
+			"Section_4_Smart_Money_deposit_and_withdrawals/ReentrancyAttack/Copy_Bank.sol": {
+				"IEtherVault": {
+					"abi": [
+						{
+							"inputs": [],
+							"name": "deposit",
+							"outputs": [],
+							"stateMutability": "payable",
+							"type": "function"
+						},
+						{
+							"inputs": [],
+							"name": "withdrawAll",
+							"outputs": [],
+							"stateMutability": "nonpayable",
+							"type": "function"
+						}
+					],
+					"devdoc": {
+						"kind": "dev",
+						"methods": {},
+						"version": 1
+					},
+					"evm": {
+						"assembly": "",
+						"bytecode": {
+							"functionDebugData": {},
+							"generatedSources": [],
+							"linkReferences": {},
+							"object": "",
+							"opcodes": "",
+							"sourceMap": ""
+						},
+						"deployedBytecode": {
+							"functionDebugData": {},
+							"generatedSources": [],
+							"immutableReferences": {},
+							"linkReferences": {},
+							"object": "",
+							"opcodes": "",
+							"sourceMap": ""
+						},
+						"gasEstimates": null,
+						"legacyAssembly": null,
+						"methodIdentifiers": {
+							"deposit()": "d0e30db0",
+							"withdrawAll()": "853828b6"
+						}
+					},
+					"metadata": "{\"compiler\":{\"version\":\"0.8.17+commit.8df45f5f\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[],\"name\":\"deposit\",\"outputs\":[],\"stateMutability\":\"payable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"withdrawAll\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"Section_4_Smart_Money_deposit_and_withdrawals/ReentrancyAttack/Copy_Bank.sol\":\"IEtherVault\"},\"evmVersion\":\"london\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"Section_4_Smart_Money_deposit_and_withdrawals/ReentrancyAttack/Copy_Bank.sol\":{\"keccak256\":\"0xfa6f7f818cfabb17ee52baad748a43f474e184c3cc4a31dc71ec7dbb3e28838a\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://0509e630bd9f435fa4daf183ba8994aa078070de2fac02443b9c3385598ee2ed\",\"dweb:/ipfs/QmQTuFEo3dRqGacFkkGD9b12RD9VSPdj8JS7UHdLNNGqTz\"]}},\"version\":1}",
+					"storageLayout": {
+						"storage": [],
+						"types": null
+					},
+					"userdoc": {
+						"kind": "user",
+						"methods": {},
+						"version": 1
+					}
+				}
+			}
+		},
+		"sources": {
+			"Section_4_Smart_Money_deposit_and_withdrawals/ReentrancyAttack/Copy_Bank.sol": {
+				"ast": {
+					"absolutePath": "Section_4_Smart_Money_deposit_and_withdrawals/ReentrancyAttack/Copy_Bank.sol",
+					"exportedSymbols": {
+						"IEtherVault": [
+							8
+						]
+					},
+					"id": 9,
+					"license": "MIT",
+					"nodeType": "SourceUnit",
+					"nodes": [
+						{
+							"id": 1,
+							"literals": [
+								"solidity",
+								"0.8",
+								".17"
+							],
+							"nodeType": "PragmaDirective",
+							"src": "34:23:0"
+						},
+						{
+							"abstract": false,
+							"baseContracts": [],
+							"canonicalName": "IEtherVault",
+							"contractDependencies": [],
+							"contractKind": "interface",
+							"fullyImplemented": false,
+							"id": 8,
+							"linearizedBaseContracts": [
+								8
+							],
+							"name": "IEtherVault",
+							"nameLocation": "69:11:0",
+							"nodeType": "ContractDefinition",
+							"nodes": [
+								{
+									"functionSelector": "d0e30db0",
+									"id": 4,
+									"implemented": false,
+									"kind": "function",
+									"modifiers": [],
+									"name": "deposit",
+									"nameLocation": "96:7:0",
+									"nodeType": "FunctionDefinition",
+									"parameters": {
+										"id": 2,
+										"nodeType": "ParameterList",
+										"parameters": [],
+										"src": "103:2:0"
+									},
+									"returnParameters": {
+										"id": 3,
+										"nodeType": "ParameterList",
+										"parameters": [],
+										"src": "122:0:0"
+									},
+									"scope": 8,
+									"src": "87:36:0",
+									"stateMutability": "payable",
+									"virtual": false,
+									"visibility": "external"
+								},
+								{
+									"functionSelector": "853828b6",
+									"id": 7,
+									"implemented": false,
+									"kind": "function",
+									"modifiers": [],
+									"name": "withdrawAll",
+									"nameLocation": "137:11:0",
+									"nodeType": "FunctionDefinition",
+									"parameters": {
+										"id": 5,
+										"nodeType": "ParameterList",
+										"parameters": [],
+										"src": "148:2:0"
+									},
+									"returnParameters": {
+										"id": 6,
+										"nodeType": "ParameterList",
+										"parameters": [],
+										"src": "159:0:0"
+									},
+									"scope": 8,
+									"src": "128:32:0",
+									"stateMutability": "nonpayable",
+									"virtual": false,
+									"visibility": "external"
+								}
+							],
+							"scope": 9,
+							"src": "59:103:0",
+							"usedErrors": []
+						}
+					],
+					"src": "34:129:0"
+				},
+				"id": 0
+			}
+		}
+	}
+}

@@ -1,0 +1,122 @@
+{
+	"compiler": {
+		"version": "0.8.17+commit.8df45f5f"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [
+					{
+						"internalType": "contract IBank",
+						"name": "_bank",
+						"type": "address"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "constructor"
+			},
+			{
+				"inputs": [],
+				"name": "attack",
+				"outputs": [],
+				"stateMutability": "payable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "bank",
+				"outputs": [
+					{
+						"internalType": "contract IBank",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "depositInitial",
+				"outputs": [],
+				"stateMutability": "payable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "getBalance",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "getDeployedAddress",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"stateMutability": "payable",
+				"type": "receive"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"Section_4_Smart_Money_deposit_and_withdrawals/ReentrancyAttack/Hacker_Attacks.sol": "Attack"
+		},
+		"evmVersion": "london",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"Section_4_Smart_Money_deposit_and_withdrawals/ReentrancyAttack/Hacker_Attacks.sol": {
+			"keccak256": "0x6e33c853c7b52071ac630432d0a99f2417f81f8ca9a41d682f125ad4c2886408",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://a55a6a23e89236deac1722f7482a0c10768d89e9a3612e738d2df3987f49e23e",
+				"dweb:/ipfs/QmYEpn4w6hJcp8Bw4VYSENxrLcyiqwEeWZLajxyhnjREFH"
+			]
+		},
+		"Section_4_Smart_Money_deposit_and_withdrawals/ReentrancyAttack/IBank.sol": {
+			"keccak256": "0x8b2f38881a91ad17dd6a4df6cfea2ff356d69ffd670e0d8bf7a31542eaa298dc",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://600bc8f5df6065c513d0542f6ebe7265e9a324753ad472030a626ad73d8457d7",
+				"dweb:/ipfs/QmPnLi1mX9xcmtdycysqH54aAQSuv3KvJTxda4GRuJF79z"
+			]
+		}
+	},
+	"version": 1
+}
