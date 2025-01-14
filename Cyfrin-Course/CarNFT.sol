@@ -3,9 +3,30 @@ pragma solidity >=0.8.20 < 0.8.29;
 
 contract SimpleStorage{
 
-    //create a balance of eth
-    //get a token for add and update CarCV
-    //pay with token for reading CarCV
+    //authentification and registration
+    //  - partner logs in with wallet address - lets be metamask
+    //  - partner registers the car and the tracker device
+    //  -- car is created as an nft
+    //  - partner must deposit eth
+    //  - smart-contract stakes eth, could be an idea to earn eth
+
+    //partner earns
+    //  - partner receives token as minting
+
+    //user request
+    //  - only readable when paid by token
+    //  - x% are burned, rest is shared among the stakeholders
+
+    //nft creation during registration
+    //  smart-contract gets an event with Car-ID and details
+    //  smart-contract creates an NFT based on the Car-ID
+    //  smart-contract checks if NFT exists with Car-ID, avoiding duplicates
+
+    //user reads data
+    //  web3 authenticates with metamask
+    //  web3 sends token to read data
+    //  smart-contract gets an event with Car-ID
+    //  smart-contract gets all details for web3    
 
     uint256 CarNFT_TokenBalance;
 
