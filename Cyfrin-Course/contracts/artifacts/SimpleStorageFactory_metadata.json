@@ -1,0 +1,123 @@
+{
+	"compiler": {
+		"version": "0.8.28+commit.7893614a"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [],
+				"name": "createSimpleStorage",
+				"outputs": [
+					{
+						"internalType": "contract SmallSimpleStorage",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"name": "listOfSimpleStorage",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "index",
+						"type": "uint256"
+					}
+				],
+				"name": "retrieveFavoritNumber",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_favoriteNumber",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "index",
+						"type": "uint256"
+					}
+				],
+				"name": "storeFavoriteNumber",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"Cyfrin-Course/contracts/SimpleStorageFactory.sol": "SimpleStorageFactory"
+		},
+		"evmVersion": "cancun",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"Cyfrin-Course/contracts/SimpleStorageFactory.sol": {
+			"keccak256": "0xf2e30b1be74e97f3d0b284e96f66d05b2baeea2b3e04e7e3a58ddbaa5ed0b60a",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://5a402d9e0f4eb94ec0f90dc709ff1e0c03209d55f27f806241bbb943c568b633",
+				"dweb:/ipfs/QmVw9pE1aqJPpymm3L41Rh5HvAy2cgDHdHxjT1oARi6q52"
+			]
+		},
+		"Cyfrin-Course/contracts/SimpleStorages.sol": {
+			"keccak256": "0x4cab8b4bc30924f61ebb5a2df90c3296c40dbe830183952e7b1225bd341d26e1",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://92b3ace621fdaa6c920fc4b49aa52888e2cf5c4972edb75ec9c975b7345ea29f",
+				"dweb:/ipfs/QmS72dr1GTPHvwoCKEY6HHK16HDSRyQ2yAk9DzRAhrZTME"
+			]
+		}
+	},
+	"version": 1
+}

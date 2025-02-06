@@ -1,0 +1,97 @@
+{
+	"compiler": {
+		"version": "0.8.28+commit.7893614a"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"name": "listOfPeople",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "favoriteNumber",
+						"type": "uint256"
+					},
+					{
+						"internalType": "string",
+						"name": "name",
+						"type": "string"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "string",
+						"name": "",
+						"type": "string"
+					}
+				],
+				"name": "nameToFavoriteNumber",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"Cyfrin-Course/contracts/Interface_Baseclass/BaseSimpleStorage.sol": "BaseSimpleStorage"
+		},
+		"evmVersion": "cancun",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"Cyfrin-Course/contracts/Interface_Baseclass/BaseSimpleStorage.sol": {
+			"keccak256": "0xa8e898eec7c7173d3daf1a8b813f7b5aa88d9b29e58c9524289ca2521c1aff85",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://2f8f520797359ddbfad0f32cad5563dee1ec4375a73ec0b07fe4f6de2d86f3f1",
+				"dweb:/ipfs/QmNWH74HuPtT2FS3iURD2HHaZwYHCcsRk3a934YLSnGtGg"
+			]
+		},
+		"Cyfrin-Course/contracts/Interface_Baseclass/IStorageInterface.sol": {
+			"keccak256": "0xbd28524357a3c2617edcb549a1122de8ff58584fb3d2d775720ed58bbe0c769b",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://6b5751c02b0a83605cd63bfbc2ea6f7662d6124968f20432eb9a7696fd46d888",
+				"dweb:/ipfs/QmUi94noiqunPKFuUeN8Gxi3VavMJQBQ2mNHiHt9zkvRXZ"
+			]
+		}
+	},
+	"version": 1
+}

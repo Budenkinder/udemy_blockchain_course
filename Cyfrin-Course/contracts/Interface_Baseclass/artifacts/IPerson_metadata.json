@@ -1,0 +1,45 @@
+{
+	"compiler": {
+		"version": "0.8.28+commit.7893614a"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"Cyfrin-Course/contracts/Interface_Baseclass/IPerson.sol": "IPerson"
+		},
+		"evmVersion": "cancun",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"Cyfrin-Course/contracts/Interface_Baseclass/IPerson.sol": {
+			"keccak256": "0x468d291f8e1f0c7098cfb657fc9f4b08b53b2900e3144726188c2f866cc6bdc5",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://a92ec4681fe1593772fd8e0ec506a26c2c82643b5e181b9a9a1221b9181960a1",
+				"dweb:/ipfs/QmY2ompWZNzu4dMZUdtRDpPTJ7Dta65hXv4RhGMeEPNxbu"
+			]
+		}
+	},
+	"version": 1
+}

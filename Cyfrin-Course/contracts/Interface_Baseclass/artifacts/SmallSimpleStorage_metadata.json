@@ -1,0 +1,167 @@
+{
+	"compiler": {
+		"version": "0.8.28+commit.7893614a"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [
+					{
+						"internalType": "string",
+						"name": "_name",
+						"type": "string"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_favoriteNumber",
+						"type": "uint256"
+					}
+				],
+				"name": "addPerson",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"name": "listOfPeople",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "favoriteNumber",
+						"type": "uint256"
+					},
+					{
+						"internalType": "string",
+						"name": "name",
+						"type": "string"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "string",
+						"name": "",
+						"type": "string"
+					}
+				],
+				"name": "nameToPerson",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "favoriteNumber",
+						"type": "uint256"
+					},
+					{
+						"internalType": "string",
+						"name": "name",
+						"type": "string"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "string",
+						"name": "_name",
+						"type": "string"
+					}
+				],
+				"name": "retrievePerson",
+				"outputs": [
+					{
+						"components": [
+							{
+								"internalType": "uint256",
+								"name": "favoriteNumber",
+								"type": "uint256"
+							},
+							{
+								"internalType": "string",
+								"name": "name",
+								"type": "string"
+							}
+						],
+						"internalType": "struct IPerson.Person",
+						"name": "",
+						"type": "tuple"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"Cyfrin-Course/contracts/Interface_Baseclass/SmallSimpleStorage.sol": "SmallSimpleStorage"
+		},
+		"evmVersion": "cancun",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"Cyfrin-Course/contracts/Interface_Baseclass/BaseStorage.sol": {
+			"keccak256": "0x95b9e6788a60a645aa20138fbc1d7d809b3275bb2c5260c58d1234b3b0d9fcd2",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://bb28547a2b654806301a4699a68eb68bae8572d1fb8730cfa19bd2faf0e8ef6d",
+				"dweb:/ipfs/Qmc34EPKgTLuxs3VA7cCCqFzMXvkwmcrLpMAs1CWjKG2Lp"
+			]
+		},
+		"Cyfrin-Course/contracts/Interface_Baseclass/IPerson.sol": {
+			"keccak256": "0x468d291f8e1f0c7098cfb657fc9f4b08b53b2900e3144726188c2f866cc6bdc5",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://a92ec4681fe1593772fd8e0ec506a26c2c82643b5e181b9a9a1221b9181960a1",
+				"dweb:/ipfs/QmY2ompWZNzu4dMZUdtRDpPTJ7Dta65hXv4RhGMeEPNxbu"
+			]
+		},
+		"Cyfrin-Course/contracts/Interface_Baseclass/IStorageInterface.sol": {
+			"keccak256": "0xd7fcddcf647479f6b450d3b7e4fcb6fb94e1a7d2566a0f813c59071798336be0",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://d9452871e4c51f22ef2749e69a3bd19ab04aa96f1ad25b220c52fa8d3699e703",
+				"dweb:/ipfs/QmVRJTFvJzzHrrJf9EZPrNefTJCZCdh4sjbQD8gjiQDaJA"
+			]
+		},
+		"Cyfrin-Course/contracts/Interface_Baseclass/SmallSimpleStorage.sol": {
+			"keccak256": "0xd4371aedb783162161128d689535073c114f014a4488ee142fedaf12c77ee832",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://f7bf7310611628ceeab105fad1516ae10b0ccd0446772d5bee9a72c542115352",
+				"dweb:/ipfs/Qme1ZHzdtpskxRh3acERBQJHuRav7r6uxC15pk3rVqYCXh"
+			]
+		}
+	},
+	"version": 1
+}
