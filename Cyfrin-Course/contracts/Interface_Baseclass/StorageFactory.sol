@@ -3,21 +3,25 @@
 pragma solidity ^0.8.19;
 
 import "Cyfrin-Course/contracts/Interface_Baseclass/SmallSimpleStorage.sol";
-contract StorageFactory{
+import "Cyfrin-Course/contracts/Interface_Baseclass/IPerson.sol";
+
+contract StorageFactory is IPerson{
 
     address[] public listOfMixStorages;
+    Person public person;
     
-    function createSimpleStorage() public returns(SmallSimpleStorage){     
+    function createSimpleStorage(string memory _name, uint256 _favoriteNumber) public returns(SmallSimpleStorage){     
         SmallSimpleStorage sss = new SmallSimpleStorage();
-        sss.addPerson("Resul", 0);   
+        sss.addPerson(_name, _favoriteNumber);   
         address simpleStorage = address(sss);
         listOfMixStorages.push(simpleStorage);
         return sss;
     }
 
-    //get a storage, check for its type, typecast
-    //then get the person
-    function getAStorage(){
-
+    function getSimpleStorageInstance(uint _randomIndex, string memory _name) public {
+        require(_randomIndex < listOfMixStorages.length, "Index out of bounds");
+        address simpleStorageAddress = listOfMixStorages[_randomIndex];
+        SmallSimpleStorage sss = SmallSimpleStorage(simpleStorageAddress);
+        person = sss.retrievePerson(_name);
     }
 }
