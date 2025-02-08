@@ -6,6 +6,19 @@
 	"output": {
 		"abi": [
 			{
+				"inputs": [],
+				"name": "getInterfaceId",
+				"outputs": [
+					{
+						"internalType": "bytes4",
+						"name": "",
+						"type": "bytes4"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
 				"inputs": [
 					{
 						"internalType": "uint256",
@@ -82,11 +95,11 @@
 	},
 	"sources": {
 		"Cyfrin-Course/contracts/Interface_Baseclass/BaseStorage.sol": {
-			"keccak256": "0x95b9e6788a60a645aa20138fbc1d7d809b3275bb2c5260c58d1234b3b0d9fcd2",
+			"keccak256": "0x12532cb0670cfe5452a4f2c03f6826dbfd4402501c0eb3f87632ae1976ddcc5b",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://bb28547a2b654806301a4699a68eb68bae8572d1fb8730cfa19bd2faf0e8ef6d",
-				"dweb:/ipfs/Qmc34EPKgTLuxs3VA7cCCqFzMXvkwmcrLpMAs1CWjKG2Lp"
+				"bzz-raw://944d71e354a496d2636497f6e3c6558a13cff01090d5c3694e4f1b2b3ea7513d",
+				"dweb:/ipfs/QmTnUu5CkKXTbSuVMsWkC9eUdoKnrk87yFzydSDf4fKho3"
 			]
 		},
 		"Cyfrin-Course/contracts/Interface_Baseclass/IPerson.sol": {
