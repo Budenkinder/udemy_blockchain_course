@@ -155,11 +155,11 @@
 			]
 		},
 		"Cyfrin-Course/contracts/Interface_Baseclass/LargeSimpleStorages.sol": {
-			"keccak256": "0x35e7888c065b82b352f6d7c4ec7b7da2178e310fbd3f4e0a6ee064c7253451a5",
+			"keccak256": "0xc23b5d269fe828ecb4bdae3c9ff7d56ab4b988ed3ee5245834188ea5c92dc1f4",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://e266677aa955ff723042a3998da683d46b7d47ae4cd4504c6ab2f37273ca45f6",
-				"dweb:/ipfs/QmcYm46nvafrrvmr6q7TvchqzKjwrkuB3L4ZTLoy3ftjeH"
+				"bzz-raw://191a5ea477327e1ae0bd7b2da96f3080a6986cb9541678643d047473e7cab288",
+				"dweb:/ipfs/QmQRPQat3ja8H7FdqGCekTdJkbRwGz6aGZaTZheUPp4DR2"
 			]
 		}
 	},

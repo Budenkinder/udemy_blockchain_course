@@ -155,11 +155,11 @@
 			]
 		},
 		"Cyfrin-Course/contracts/Interface_Baseclass/MediumSimpleStorages.sol": {
-			"keccak256": "0xc7257d593c828e6c5b5f7aa81f0568177d848a39cefbe55c7bc282e854807f56",
+			"keccak256": "0xeef22a51f73407a6faeb4bc532f615cd880f8b66b7d418c6a844257996cc9aaa",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://8953582c4a76fc3fbb9ecda04844ffb600c937c1c510db26a557610e19480cd7",
-				"dweb:/ipfs/QmbuuaUZ4WvAUWEmF5aBD3sjw4Bag5gesxrRzj1jP4Uc4Q"
+				"bzz-raw://a2ae9e2f7b87993ce536e9d5cfae8a8f4d25b973a350ae825763431bc2298fd4",
+				"dweb:/ipfs/QmcZSCiDrT9yogk7Jzw314vdCXmQDURcsbTqJxfrfQ7o1n"
 			]
 		}
 	},

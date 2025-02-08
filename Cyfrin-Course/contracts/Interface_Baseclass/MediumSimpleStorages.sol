@@ -11,7 +11,9 @@ contract MediumSimpleStorage is BaseStorage, IStorageInterface{
     } 
 
     function addPerson(string memory _name, uint256 _favoriteNumber) public override{
-        listOfPeople.push(Person({name:_name, favoriteNumber:_favoriteNumber}));
+        Person memory person = Person({name:_name, favoriteNumber:_favoriteNumber});
+        listOfPeople.push(person);
+        nameToPerson[_name] = person;
     }
 
 }
