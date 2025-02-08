@@ -145,11 +145,11 @@
 			]
 		},
 		"Cyfrin-Course/contracts/Interface_Baseclass/StorageFactory.sol": {
-			"keccak256": "0x4d2d8151a7b69cc54f8e77d99b2db6feaf4b57f3cf5bee2be7792d1b2e8b2bf2",
+			"keccak256": "0x048ba4a2f99d7fcf8eb2885e840c030586010df3186362ad7e8e8a9c241452cb",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://974fa36aea0da8a9a77b9ecb47f4ea6fede47e562269fd65d0edaa75c55bea97",
-				"dweb:/ipfs/QmZ9Xbg4u9dVjvWLQAvejCoFCVb17ifrd4cSZ9uNiegU4J"
+				"bzz-raw://8004f85880e3e6f164534ba13091537f1ec8c022cdbb28c2bf566592dce01f98",
+				"dweb:/ipfs/QmTrLAANvBhND85LLVARtVLYqp2gXDYhtK6XJfXFM4yw1Y"
 			]
 		}
 	},
