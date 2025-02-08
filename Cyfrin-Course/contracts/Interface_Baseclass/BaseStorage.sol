@@ -9,4 +9,6 @@ abstract contract BaseStorage is IPerson{
     Person[] public listOfPeople;
 
     mapping(string=> Person) public nameToPerson;
+
+    function getInterfaceId() public view virtual returns (bytes4);
 }

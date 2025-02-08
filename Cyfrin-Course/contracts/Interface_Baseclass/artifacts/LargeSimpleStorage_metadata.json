@@ -24,6 +24,19 @@
 				"type": "function"
 			},
 			{
+				"inputs": [],
+				"name": "getInterfaceId",
+				"outputs": [
+					{
+						"internalType": "bytes4",
+						"name": "",
+						"type": "bytes4"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
 				"inputs": [
 					{
 						"internalType": "uint256",
@@ -101,11 +114,34 @@
 				],
 				"stateMutability": "view",
 				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "bytes4",
+						"name": "interfaceId",
+						"type": "bytes4"
+					}
+				],
+				"name": "supportsInterface",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
 			}
 		],
 		"devdoc": {
 			"kind": "dev",
-			"methods": {},
+			"methods": {
+				"supportsInterface(bytes4)": {
+					"details": "See {IERC165-supportsInterface}."
+				}
+			},
 			"version": 1
 		},
 		"userdoc": {
@@ -116,7 +152,7 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"Cyfrin-Course/contracts/Interface_Baseclass/LargeSimpleStorages.sol": "LargeSimpleStorage"
+			"Cyfrin-Course/contracts/Interface_Baseclass/LargeSimpleStorage.sol": "LargeSimpleStorage"
 		},
 		"evmVersion": "cancun",
 		"libraries": {},
@@ -130,12 +166,28 @@
 		"remappings": []
 	},
 	"sources": {
-		"Cyfrin-Course/contracts/Interface_Baseclass/BaseStorage.sol": {
-			"keccak256": "0x95b9e6788a60a645aa20138fbc1d7d809b3275bb2c5260c58d1234b3b0d9fcd2",
+		"@openzeppelin/contracts/utils/introspection/ERC165.sol": {
+			"keccak256": "0xd10975de010d89fd1c78dc5e8a9a7e7f496198085c151648f20cba166b32582b",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://bb28547a2b654806301a4699a68eb68bae8572d1fb8730cfa19bd2faf0e8ef6d",
-				"dweb:/ipfs/Qmc34EPKgTLuxs3VA7cCCqFzMXvkwmcrLpMAs1CWjKG2Lp"
+				"bzz-raw://fb0048dee081f6fffa5f74afc3fb328483c2a30504e94a0ddd2a5114d731ec4d",
+				"dweb:/ipfs/QmZptt1nmYoA5SgjwnSgWqgUSDgm4q52Yos3xhnMv3MV43"
+			]
+		},
+		"@openzeppelin/contracts/utils/introspection/IERC165.sol": {
+			"keccak256": "0x447a5f3ddc18419d41ff92b3773fb86471b1db25773e07f877f548918a185bf1",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://be161e54f24e5c6fae81a12db1a8ae87bc5ae1b0ddc805d82a1440a68455088f",
+				"dweb:/ipfs/QmP7C3CHdY9urF4dEMb9wmsp1wMxHF6nhA2yQE5SKiPAdy"
+			]
+		},
+		"Cyfrin-Course/contracts/Interface_Baseclass/BaseStorage.sol": {
+			"keccak256": "0x12532cb0670cfe5452a4f2c03f6826dbfd4402501c0eb3f87632ae1976ddcc5b",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://944d71e354a496d2636497f6e3c6558a13cff01090d5c3694e4f1b2b3ea7513d",
+				"dweb:/ipfs/QmTnUu5CkKXTbSuVMsWkC9eUdoKnrk87yFzydSDf4fKho3"
 			]
 		},
 		"Cyfrin-Course/contracts/Interface_Baseclass/IPerson.sol": {
@@ -154,12 +206,12 @@
 				"dweb:/ipfs/QmVRJTFvJzzHrrJf9EZPrNefTJCZCdh4sjbQD8gjiQDaJA"
 			]
 		},
-		"Cyfrin-Course/contracts/Interface_Baseclass/LargeSimpleStorages.sol": {
-			"keccak256": "0xc23b5d269fe828ecb4bdae3c9ff7d56ab4b988ed3ee5245834188ea5c92dc1f4",
+		"Cyfrin-Course/contracts/Interface_Baseclass/LargeSimpleStorage.sol": {
+			"keccak256": "0xeab570c082fcd252cffb4c3554c90e7ce5dfcfff1673b7da897e2aecfc6c9a4a",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://191a5ea477327e1ae0bd7b2da96f3080a6986cb9541678643d047473e7cab288",
-				"dweb:/ipfs/QmQRPQat3ja8H7FdqGCekTdJkbRwGz6aGZaTZheUPp4DR2"
+				"bzz-raw://031025fc2c96cf7cb283e7f3326b122b7e76517c3941646f7ddcb4d7498d1781",
+				"dweb:/ipfs/QmQLoMwHHqbfpuY6n2SRvo3dMypmx6yo9usNTnBW1VuYyv"
 			]
 		}
 	},
