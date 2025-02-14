@@ -22,7 +22,7 @@ contract StorageFactory is IPerson{
         storageContracts[StorageType.LARGE] = address(new LargeSimpleStorage());
     }
 
-    function isStorageContract(address _contract, bytes4 _interfaceId) private view returns (bool) {
+    function isStorageContractTypeOf(address _contract, bytes4 _interfaceId) private view returns (bool) {
         return _contract.supportsInterface(_interfaceId);
     }
 
@@ -60,10 +60,10 @@ contract StorageFactory is IPerson{
         address simpleStorageAddress = listOfMixStorages[_randomIndex];
         
         // Check if the address is a SmallSimpleStorage contract
-        if(isStorageContract(simpleStorageAddress, SmallSimpleStorage(simpleStorageAddress).getInterfaceId())){
+        if(isStorageContractTypeOf(simpleStorageAddress, SmallSimpleStorage(simpleStorageAddress).getInterfaceId())){
             SmallSimpleStorage ss_storage = SmallSimpleStorage(simpleStorageAddress);
             person = ss_storage.retrievePerson(_name);
-        }else if(isStorageContract(simpleStorageAddress, MediumSimpleStorage(simpleStorageAddress).getInterfaceId())){
+        }else if(isStorageContractTypeOf(simpleStorageAddress, MediumSimpleStorage(simpleStorageAddress).getInterfaceId())){
             MediumSimpleStorage ms_storage = MediumSimpleStorage(simpleStorageAddress);
             person = ms_storage.retrievePerson(_name);
         }else{
