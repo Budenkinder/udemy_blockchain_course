@@ -12,6 +12,7 @@ contract YourFundedEvent{
 
 contract FundMe is YourFundedEvent{
 
+
     AggregatorV3Interface internal chainlinkDataFeed;
 
     struct FundedFrom{
@@ -25,7 +26,7 @@ contract FundMe is YourFundedEvent{
     //can have duplicate funders
     FundedFrom[] public funders; 
 
-    uint256 public balance = 0;
+    uint256 public ethBalance = 0;
     int256 public fundInUSD = 0;
     int256 public ethPriceUSD = 0;
 
@@ -39,9 +40,14 @@ contract FundMe is YourFundedEvent{
 
     address private owner;
 
+    event Log(address indexed sender, uint80 indexed _data);
+    event Log(address indexed sender, uint indexed _data);
+    event Log(address indexed sender, int indexed _data);
+
     constructor()  {
         owner = msg.sender;
         // deployed in sepholia testnet at that address
+        //the smart-contract on that address is type-casted to this interface
         chainlinkDataFeed = AggregatorV3Interface(0x694AA1769357215DE4FAC081bf1f309aDC325306);
     }
 
@@ -55,25 +61,27 @@ contract FundMe is YourFundedEvent{
             uint80 _answeredInRound
         ) = chainlinkDataFeed.latestRoundData();
 
-        roundId = _roundID;
-        answer = _answer;
-        startedAt = _startedAt;
-        timeStamp = _timeStamp;
-        answeredInRound = _answeredInRound;
+        //emit Log(msg.sender, _roundID);
+        emit Log(msg.sender, _answer);
+        emit Log(msg.sender, _startedAt);
+        emit Log(msg.sender, _timeStamp);
+        emit Log(msg.sender, _answeredInRound);
+        //logging
 
         decimals = chainlinkDataFeed.decimals();
-
-        require(10**decimals != 0, "Division by zero");
-        ethPriceUSD = answer / int(10**uint(decimals));
-
+        ethPriceUSD = convertEthInUSD(decimals, answer);
+        
         return answer;
+    }
+
+    function convertEthInUSD(uint8 _decimals, int _ethPrice) internal pure returns (int){
+        require(10**_decimals != 0, "Division by zero");
+        return _ethPrice / int(10**uint(_decimals));
     }
 
     function fundMe(string memory name, string memory lastname) public payable{
         //require(owner.balance >= 0.000005 ether, "Didn't send enough eth >= 0.000005");
-        balance += msg.value;  // this is not the balance of contract, it's that of FundMe
-        
-        emit funded(msg.sender, msg.value);
+        //ethBalance += msg.value;  // this is not the balance of contract, it's that of FundMe
 
         fundInUSD = (int256(msg.value) * getChainlinkDataFeedLatestAnswer()) / 1e18; // Convert ETH to USD
 
@@ -82,6 +90,8 @@ contract FundMe is YourFundedEvent{
         lastname,
         msg.value, fundInUSD);
         funders.push(fundedFrom);
+
+        emit funded(msg.sender, msg.value);
     }
 
     receive() external payable {}
