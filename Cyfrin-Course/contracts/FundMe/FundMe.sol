@@ -10,7 +10,15 @@ contract YourFundedEvent{
     event funded(address from, uint256 amount);
 }
 
-contract FundMe is YourFundedEvent{
+contract YourDataFeedEvent{
+    event LogAnswer(address indexed sender, int indexed _data);
+    event LogRoundID(address indexed sender, uint80 indexed _data);
+    event LogAnsweredInRound(address indexed sender, uint80 indexed _data);
+    event LogStartedAt(address indexed sender, uint indexed _data);
+    event LogTimeStamp(address indexed sender, uint indexed _data);
+}
+
+contract FundMe is YourFundedEvent, YourDataFeedEvent{
 
 
     AggregatorV3Interface internal chainlinkDataFeed;
@@ -40,9 +48,7 @@ contract FundMe is YourFundedEvent{
 
     address private owner;
 
-    event Log(address indexed sender, uint80 indexed _data);
-    event Log(address indexed sender, uint indexed _data);
-    event Log(address indexed sender, int indexed _data);
+    uint256 public minimumUsd = 5;
 
     constructor()  {
         owner = msg.sender;
@@ -61,17 +67,17 @@ contract FundMe is YourFundedEvent{
             uint80 _answeredInRound
         ) = chainlinkDataFeed.latestRoundData();
 
-        //emit Log(msg.sender, _roundID);
-        emit Log(msg.sender, _answer);
-        emit Log(msg.sender, _startedAt);
-        emit Log(msg.sender, _timeStamp);
-        emit Log(msg.sender, _answeredInRound);
+        emit LogRoundID(msg.sender, _roundID);
+        emit LogAnswer(msg.sender, _answer);
+        emit LogStartedAt(msg.sender, _startedAt);
+        emit LogTimeStamp(msg.sender, _timeStamp);
+        emit LogAnsweredInRound(msg.sender, _answeredInRound);
         //logging
 
         decimals = chainlinkDataFeed.decimals();
-        ethPriceUSD = convertEthInUSD(decimals, answer);
+        ethPriceUSD = convertEthInUSD(decimals, _answer);
         
-        return answer;
+        return _answer;
     }
 
     function convertEthInUSD(uint8 _decimals, int _ethPrice) internal pure returns (int){
@@ -79,9 +85,11 @@ contract FundMe is YourFundedEvent{
         return _ethPrice / int(10**uint(_decimals));
     }
 
-    function fundMe(string memory name, string memory lastname) public payable{
+    function fundMe(string memory name, string memory lastname) external payable{
         //require(owner.balance >= 0.000005 ether, "Didn't send enough eth >= 0.000005");
         //ethBalance += msg.value;  // this is not the balance of contract, it's that of FundMe
+
+        require(msg.value >= minimumUsd, "didnt send enough ETH");
 
         fundInUSD = (int256(msg.value) * getChainlinkDataFeedLatestAnswer()) / 1e18; // Convert ETH to USD
 
