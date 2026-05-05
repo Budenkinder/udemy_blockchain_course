@@ -1,0 +1,59 @@
+{
+	"compiler": {
+		"version": "0.8.17+commit.8df45f5f"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "string",
+						"name": "log",
+						"type": "string"
+					}
+				],
+				"name": "LogOutput",
+				"type": "event"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"Section_4_Smart_Money_deposit_and_withdrawals/ReentrancyAttack/Bank.sol": "LogContracts"
+		},
+		"evmVersion": "london",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"Section_4_Smart_Money_deposit_and_withdrawals/ReentrancyAttack/Bank.sol": {
+			"keccak256": "0x22bc006668ff9b8494d2cc209c69d8a54edca4e206d7ab6043ab5be889f96d73",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://0be1a5ec29492cba6285579e133532254675b86f3197c308bf6a86a654242292",
+				"dweb:/ipfs/QmXk2RF2F5c1ev8w9jRwio3LN3hLzt9BWLTJx2VzgNsX5s"
+			]
+		}
+	},
+	"version": 1
+}

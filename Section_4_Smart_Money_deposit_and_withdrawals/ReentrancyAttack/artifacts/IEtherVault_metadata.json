@@ -1,0 +1,60 @@
+{
+	"compiler": {
+		"version": "0.8.17+commit.8df45f5f"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [],
+				"name": "deposit",
+				"outputs": [],
+				"stateMutability": "payable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "withdrawAll",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"Section_4_Smart_Money_deposit_and_withdrawals/ReentrancyAttack/Bank.sol": "IEtherVault"
+		},
+		"evmVersion": "london",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"Section_4_Smart_Money_deposit_and_withdrawals/ReentrancyAttack/Bank.sol": {
+			"keccak256": "0xe4c35fbdbc5eea2b86e9f0db16cb4f934b1fe80204b0cc232e04f4194632821e",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://79f3bbb7e685ceba42d6fec2817adebabf8e68e43c8c99fb28935b692f866168",
+				"dweb:/ipfs/Qmdy16S28fNHeW4njKhNNVcbnAbVKHWZwr8L1a2P6Bce1Y"
+			]
+		}
+	},
+	"version": 1
+}

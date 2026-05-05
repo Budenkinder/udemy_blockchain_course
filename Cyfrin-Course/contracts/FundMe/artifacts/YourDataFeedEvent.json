@@ -1,0 +1,156 @@
+{
+	"deploy": {
+		"VM:-": {
+			"linkReferences": {},
+			"autoDeployLib": true
+		},
+		"main:1": {
+			"linkReferences": {},
+			"autoDeployLib": true
+		},
+		"ropsten:3": {
+			"linkReferences": {},
+			"autoDeployLib": true
+		},
+		"rinkeby:4": {
+			"linkReferences": {},
+			"autoDeployLib": true
+		},
+		"kovan:42": {
+			"linkReferences": {},
+			"autoDeployLib": true
+		},
+		"goerli:5": {
+			"linkReferences": {},
+			"autoDeployLib": true
+		},
+		"Custom": {
+			"linkReferences": {},
+			"autoDeployLib": true
+		}
+	},
+	"data": {
+		"bytecode": {
+			"functionDebugData": {},
+			"generatedSources": [],
+			"linkReferences": {},
+			"object": "6080604052348015600e575f5ffd5b50603e80601a5f395ff3fe60806040525f5ffdfea26469706673582212206a5dfaf9b48d7847233e00582419e5efcd0bf9c8985922d86416c8b4c68608a464736f6c634300081c0033",
+			"opcodes": "PUSH1 0x80 PUSH1 0x40 MSTORE CALLVALUE DUP1 ISZERO PUSH1 0xE JUMPI PUSH0 PUSH0 REVERT JUMPDEST POP PUSH1 0x3E DUP1 PUSH1 0x1A PUSH0 CODECOPY PUSH0 RETURN INVALID PUSH1 0x80 PUSH1 0x40 MSTORE PUSH0 PUSH0 REVERT INVALID LOG2 PUSH5 0x6970667358 0x22 SLT KECCAK256 PUSH11 0x5DFAF9B48D7847233E0058 0x24 NOT 0xE5 0xEF 0xCD SIGNEXTEND 0xF9 0xC8 SWAP9 MSIZE 0x22 0xD8 PUSH5 0x16C8B4C686 ADDMOD LOG4 PUSH5 0x736F6C6343 STOP ADDMOD SHR STOP CALLER ",
+			"sourceMap": "336:373:1:-:0;;;;;;;;;;;;;;;;;;;"
+		},
+		"deployedBytecode": {
+			"functionDebugData": {},
+			"generatedSources": [],
+			"immutableReferences": {},
+			"linkReferences": {},
+			"object": "60806040525f5ffdfea26469706673582212206a5dfaf9b48d7847233e00582419e5efcd0bf9c8985922d86416c8b4c68608a464736f6c634300081c0033",
+			"opcodes": "PUSH1 0x80 PUSH1 0x40 MSTORE PUSH0 PUSH0 REVERT INVALID LOG2 PUSH5 0x6970667358 0x22 SLT KECCAK256 PUSH11 0x5DFAF9B48D7847233E0058 0x24 NOT 0xE5 0xEF 0xCD SIGNEXTEND 0xF9 0xC8 SWAP9 MSIZE 0x22 0xD8 PUSH5 0x16C8B4C686 ADDMOD LOG4 PUSH5 0x736F6C6343 STOP ADDMOD SHR STOP CALLER ",
+			"sourceMap": "336:373:1:-:0;;;;;"
+		},
+		"gasEstimates": {
+			"creation": {
+				"codeDepositCost": "12400",
+				"executionCost": "64",
+				"totalCost": "12464"
+			}
+		},
+		"methodIdentifiers": {}
+	},
+	"abi": [
+		{
+			"anonymous": false,
+			"inputs": [
+				{
+					"indexed": true,
+					"internalType": "address",
+					"name": "sender",
+					"type": "address"
+				},
+				{
+					"indexed": true,
+					"internalType": "int256",
+					"name": "_data",
+					"type": "int256"
+				}
+			],
+			"name": "LogAnswer",
+			"type": "event"
+		},
+		{
+			"anonymous": false,
+			"inputs": [
+				{
+					"indexed": true,
+					"internalType": "address",
+					"name": "sender",
+					"type": "address"
+				},
+				{
+					"indexed": true,
+					"internalType": "uint80",
+					"name": "_data",
+					"type": "uint80"
+				}
+			],
+			"name": "LogAnsweredInRound",
+			"type": "event"
+		},
+		{
+			"anonymous": false,
+			"inputs": [
+				{
+					"indexed": true,
+					"internalType": "address",
+					"name": "sender",
+					"type": "address"
+				},
+				{
+					"indexed": true,
+					"internalType": "uint80",
+					"name": "_data",
+					"type": "uint80"
+				}
+			],
+			"name": "LogRoundID",
+			"type": "event"
+		},
+		{
+			"anonymous": false,
+			"inputs": [
+				{
+					"indexed": true,
+					"internalType": "address",
+					"name": "sender",
+					"type": "address"
+				},
+				{
+					"indexed": true,
+					"internalType": "uint256",
+					"name": "_data",
+					"type": "uint256"
+				}
+			],
+			"name": "LogStartedAt",
+			"type": "event"
+		},
+		{
+			"anonymous": false,
+			"inputs": [
+				{
+					"indexed": true,
+					"internalType": "address",
+					"name": "sender",
+					"type": "address"
+				},
+				{
+					"indexed": true,
+					"internalType": "uint256",
+					"name": "_data",
+					"type": "uint256"
+				}
+			],
+			"name": "LogTimeStamp",
+			"type": "event"
+		}
+	]
+}

@@ -10,5 +10,13 @@ contract MyContract{
         ourString = _updateString;
     }
 
-    receive() external payable{ }
+    receive() external payable{ 
+        
+    }
+
+    fallback() external payable{
+        // who is that?
+        // send money back
+        // send too much money?
+    }
 }

@@ -1,0 +1,131 @@
+{
+	"compiler": {
+		"version": "0.8.28+commit.7893614a"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [
+					{
+						"components": [
+							{
+								"internalType": "string",
+								"name": "uniqueCarID",
+								"type": "string"
+							},
+							{
+								"internalType": "string",
+								"name": "nft_ID",
+								"type": "string"
+							},
+							{
+								"internalType": "uint256",
+								"name": "km",
+								"type": "uint256"
+							},
+							{
+								"internalType": "bool",
+								"name": "broken",
+								"type": "bool"
+							},
+							{
+								"internalType": "bool",
+								"name": "hadCrash",
+								"type": "bool"
+							}
+						],
+						"internalType": "struct CarNFT.CarNFT_CV",
+						"name": "_car",
+						"type": "tuple"
+					},
+					{
+						"internalType": "uint256",
+						"name": "partner_ID",
+						"type": "uint256"
+					}
+				],
+				"name": "registerNewCar",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"components": [
+							{
+								"internalType": "string",
+								"name": "uniqueCarID",
+								"type": "string"
+							},
+							{
+								"internalType": "string",
+								"name": "nft_ID",
+								"type": "string"
+							},
+							{
+								"internalType": "uint256",
+								"name": "km",
+								"type": "uint256"
+							},
+							{
+								"internalType": "bool",
+								"name": "broken",
+								"type": "bool"
+							},
+							{
+								"internalType": "bool",
+								"name": "hadCrash",
+								"type": "bool"
+							}
+						],
+						"internalType": "struct CarNFT.CarNFT_CV",
+						"name": "_car",
+						"type": "tuple"
+					}
+				],
+				"name": "updateCar",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"Cyfrin-Course/contracts/CarNFT.sol": "CarNFT"
+		},
+		"evmVersion": "cancun",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"Cyfrin-Course/contracts/CarNFT.sol": {
+			"keccak256": "0x2b8b0df1e022a584295a5cc754c418d9954963e41553fbfb4f3def4cc4e1eeb4",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://e590c4ce655ff10c6c9c4baf7b5fa435e5d8243456d5d136771c69a5a6ad9f50",
+				"dweb:/ipfs/QmSh7zbbGHLsWrFeqsiTG88DswukjM6SdG3VSAsAB7mCJ3"
+			]
+		}
+	},
+	"version": 1
+}
